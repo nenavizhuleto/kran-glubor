@@ -1,0 +1,47 @@
+.company-name {
+  text-decoration: none;
+  font: normal 62px Tahoma, Geneva, sans-serif;
+  position: absolute;
+  left: 26px;
+  top: 33px;
+  color: #0000FF;
+  text-shadow: 0 -1px 0 #FFFFFF, 0 -1px 0 #FFFFFF, 0 1px 0 #FFFFFF, 0 1px 0 #FFFFFF, -1px 0 0 #FFFFFF, 1px 0 0 #FFFFFF, -1px 0 0 #FFFFFF, 1px 0 0 #FFFFFF, -1px -1px 0 #FFFFFF, 1px -1px 0 #FFFFFF, -1px 1px 0 #FFFFFF, 1px 1px 0 #FFFFFF, -1px -1px 0 #FFFFFF, 1px -1px 0 #FFFFFF, -1px 1px 0 #FFFFFF, 1px 1px 0 #FFFFFF;
+}
+.site-name:hover {
+  color: #fff !important;
+}
+.site-content-wrap {
+  background: #FF8C16;
+}
+.site-content-middle:before {
+  right: 0;
+  left: 0;
+  position: absolute;
+  content: "";
+  background: #FF8C16;
+  height: 21px;
+  top: -21px;
+}
+.top-blocks {
+  top: 140px;
+}
+.logo {
+  top: 22px;
+  left: 30px;
+  position: absolute;
+}
+@media screen and (max-width: 990px) {
+  .site-content-middle:before {
+    height: 23px;
+  }
+}
+.site-slogan {
+  left: 465px;
+}
+.site-phone {
+  top: 43px;
+  line-height: 1;
+}
+.top-menu li a {
+  padding: 13px 15px;
+}
