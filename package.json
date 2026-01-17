@@ -1,0 +1,13 @@
+{
+  "name": "kran-glubor",
+  "version": "1.0.0",
+  "description": "Static site for ПКФ Альфа&Омега",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve",
+    "dev": "eleventy --serve --watch"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  }
+}

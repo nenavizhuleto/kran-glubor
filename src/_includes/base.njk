@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="all" />
+    {% if keywords %}
+    <meta name="keywords" content="{{ keywords }}" />{% endif %}
+    {% if description %}
+    <meta name="description" content="{{ description }}" />{% endif %}
+    <title>{% if title %}{{ title }}{% else %}ООО "ПКФ Альфа&Омега"{% endif %}</title>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://329483.21.oml.ru/{{ page.url }}">
+    <meta property="og:title" content="{% if ogTitle %}{{ ogTitle }}{% else %}{{ title }}{% endif %}">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{% if ogTitle %}{{ ogTitle }}{% else %}{{ title }}{% endif %}">
+
+    <!-- Verification -->
+    <meta name="yandex-verification" content="0131575b0e5267b1" />
+    <meta name="google-site-verification" content="V3ImtyqRpUModE5hr2OT_z0wJe3tN-wCus5Aaz2Sa-4" />
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <div class="logo-section">
+                    <a href="index.html" class="logo-link">
+                        <h1 class="company-name">Альфа&Омега</h1>
+                    </a>
+                    <div class="slogan">
+                        <img src="slogan.png" alt="Слоган компании" />
+                    </div>
+                </div>
+
+                <div class="header-contact">
+                    <div class="contact-info">
+                        <a href="tel:+79000288218" class="phone">+7 (900) 028-82-18</a>
+                        <a href="mailto:alfakran74@yandex.ru" class="email">alfakran74@yandex.ru</a>
+                        <a href="mailto:apsny999@yandex.ru" class="email">apsny999@yandex.ru</a>
+                    </div>
+                    <div class="lang-switcher">
+                        <a href="index.html" class="lang-link active" aria-label="Русский">
+                            <img src="rus.png" alt="RU" />
+                        </a>
+                        <a href="https://en.329483.21.oml.ru/" class="lang-link" aria-label="English">
+                            <img src="eng.png" alt="EN" />
+                        </a>
+                    </div>
+                </div>
+
+                <button class="mobile-menu-toggle" aria-label="Меню" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="main-nav" id="mainNav">
+                <ul class="nav-menu">
+                    {% for item in navigation.main %}
+                    <li><a href="{{ item.url }}" {% if item.url==page.url or (item.url=='index.html' and page.url=='/' )
+                            or (item.url=='/' + page.fileSlug + '.html' ) or (page.fileSlug and item.url==page.fileSlug
+                            + '.html' ) %}class="active" {% endif %}>{{ item.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </nav>
+
+            <!-- Quick Links -->
+            <div class="quick-links">
+                {% for link in navigation.quickLinks %}
+                <a href="{{ link.url }}" class="quick-link">
+                    <img src="{{ link.image }}" alt="{{ link.alt }}" />
+                    <span>{{ link.title }}</span>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="content-wrapper">
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <nav class="sidebar-nav">
+                        <ul class="sidebar-menu">
+                            {% for item in navigation.sidebar %}
+                            <li>
+                                {% if item.submenu %}
+                                <a href="{{ item.url }}" class="menu-item">{{ item.title }}</a>
+                                <ul class="submenu">
+                                    {% for subitem in item.submenu %}
+                                    <li><a href="{{ subitem.url }}">{{ subitem.title }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                                {% else %}
+                                <a href="{{ item.url }}" class="menu-item">{{ item.title }}</a>
+                                {% endif %}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </nav>
+                </aside>
+
+                <!-- Main Article -->
+                <article class="content">
+                    {{ content | safe }}
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <nav class="footer-nav">
+                <ul class="footer-menu">
+                    {% for item in navigation.footer %}
+                    <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </nav>
+            <div class="footer-bottom">
+                <div class="copyright">&copy; 2011 - 2026 ООО "ПКФ Альфа&Омега"</div>
+                <div class="footer-info">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <!-- Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-213655593-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-213655593-1');
+    </script>
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function (m, e, t, r, i, k, a) {
+            m[i] = m[i] || function () {(m[i].a = m[i].a || []).push(arguments)};
+            m[i].l = 1 * new Date(); k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })
+            (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+        ym(73462393, "init", {
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true
+        });
+    </script>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/73462393" style="position:absolute; left:-9999px;" alt="" /></div>
+    </noscript>
+</body>
+
+</html>
